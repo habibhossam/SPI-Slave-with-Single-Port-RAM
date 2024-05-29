@@ -1,0 +1,68 @@
+Command: synth_design -rtl -top wrapper
+Starting synth_design
+Using part: xc7a35ticpg236-1L
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 987.559 ; gain = 98.277
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'wrapper' [D:/spiproject/wrapper.v:1]
+	Parameter IDLE bound to: 3'b000 
+	Parameter CHK_CMD bound to: 3'b001 
+	Parameter WRITE bound to: 3'b010 
+	Parameter READ_ADD bound to: 3'b011 
+	Parameter READ_DATA bound to: 3'b100 
+INFO: [Synth 8-6157] synthesizing module 'spi_slave' [D:/spiproject/spi_slave.v:1]
+	Parameter IDLE bound to: 3'b000 
+	Parameter CHK_CMD bound to: 3'b001 
+	Parameter WRITE bound to: 3'b010 
+	Parameter READ_ADD bound to: 3'b011 
+	Parameter READ_DATA bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "sequential" *) [D:/spiproject/spi_slave.v:21]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/spiproject/spi_slave.v:82]
+INFO: [Synth 8-6155] done synthesizing module 'spi_slave' (1#1) [D:/spiproject/spi_slave.v:1]
+INFO: [Synth 8-6157] synthesizing module 'ram' [D:/spiproject/ram.v:1]
+	Parameter MEM_DEPTH bound to: 256 - type: integer 
+	Parameter ADDR_SIZE bound to: 8 - type: integer 
+WARNING: [Synth 8-5788] Register temp_reg in module ram is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/spiproject/ram.v:18]
+WARNING: [Synth 8-5788] Register mem_reg in module ram is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-4767] Trying to implement RAM 'mem_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "mem_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'ram' (2#1) [D:/spiproject/ram.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'wrapper' (3#1) [D:/spiproject/wrapper.v:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1050.781 ; gain = 161.500
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1050.781 ; gain = 161.500
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1050.781 ; gain = 161.500
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/spiproject/spi_constrains.xdc]
+Finished Parsing XDC File [D:/spiproject/spi_constrains.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1408.250 ; gain = 518.969
+12 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1408.250 ; gain = 518.969

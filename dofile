@@ -1,0 +1,6 @@
+vlib work
+vlog spi_wrapper.v wrapper_tb.v
+vsim -voptargs=+acc work.wrapper_tb
+add wave *
+run -all
+#quit -sim
